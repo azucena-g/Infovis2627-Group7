@@ -5,13 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Task 4</title>
   <link rel="stylesheet" href="assets/student.css">
+  <style>
+    .charts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .chart-frame {
+      width: 500px;
+      max-width: 100%;
+      height: 430px;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
   <main class="task-canvas" id="main-content">
     <h1 class="visually-hidden" id="page-title">Task 4 visualisation</h1>
     <div id="visualisation" role="region" aria-labelledby="page-title">
-      <!-- Add your task solution here. -->
+      <div class="charts-grid">
+        <iframe
+          src="assets/task4_pop_is_best.png"
+          title="Rising genres"
+          class="chart-frame"
+          loading="lazy"
+        ></iframe>
+        <iframe
+          src="assets/task4_top_artists.png"
+          title="Top rising artists"
+          class="chart-frame"
+          loading="lazy"
+        ></iframe>
+      </div>
     </div>
+      
   </main>
 </body>
 </html>
