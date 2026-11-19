@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"labelFontSize": 12, "titleFontSize": 13}}, "data": {"name": "data-bbdc3de41ffb44ad3cf0150e6ec45e73"}, "mark": {"type": "bar"}, "autosize": {"type": "fit", "contains": "padding"}, "encoding": {"color": {"condition": {"test": "(datum.is_pop === true)", "value": "#31a354"}, "value": "#bae4b3"}, "tooltip": [{"field": "genre", "title": "Genre", "type": "nominal"}, {"field": "rising_tracks", "title": "Rising tracks", "type": "quantitative"}], "x": {"field": "rising_tracks", "scale": {"domain": [0, 15]}, "title": "Number of rising tracks", "type": "quantitative"}, "y": {"axis": {"labelLimit": 180, "titlePadding": 10}, "field": "genre", "sort": ["Pop", "Regional Mexicano", "Alternative Rock", "New Wave", "Reggaeton"], "title": "Genre", "type": "nominal"}}, "height": 260, "title": {"text": "Top rising artists", "fontSize": 16, "fontWeight": "bold", "subtitle": "-with pop candidates highlighted-"}, "width": 320, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-bbdc3de41ffb44ad3cf0150e6ec45e73": [{"genre": "Pop", "rising_tracks": 11, "is_pop": true}, {"genre": "Regional Mexicano", "rising_tracks": 9, "is_pop": false}, {"genre": "Alternative Rock", "rising_tracks": 3, "is_pop": false}, {"genre": "New Wave", "rising_tracks": 3, "is_pop": false}, {"genre": "Reggaeton", "rising_tracks": 3, "is_pop": false}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

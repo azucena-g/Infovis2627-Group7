@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null}, "axis": {"labelFontSize": 12, "titleFontSize": 13}}, "data": {"name": "data-baccfd440fda3734eba87be291498378"}, "mark": {"type": "bar"}, "autosize": {"type": "fit", "contains": "padding"}, "encoding": {"color": {"condition": {"test": "(datum.highlight_pop === true)", "value": "#31a354"}, "value": "#bae4b3"}, "tooltip": [{"field": "artist_name", "title": "Artist", "type": "nominal"}, {"field": "rising_tracks", "title": "Rising tracks", "type": "quantitative"}], "x": {"field": "rising_tracks", "scale": {"domain": [0, 5]}, "title": "Number of rising tracks", "type": "quantitative"}, "y": {"axis": {"labelLimit": 180, "titlePadding": 10}, "field": "artist_name", "sort": ["Peso Pluma", "Fuerza Regida", "Benson Boone", "Ryan Castro", "Michael Jackson", "Neton Vega", "Olivia Dean", "RAYE", "Rauw Alejandro", "Sabrina Carpenter"], "title": "Artist", "type": "nominal"}}, "height": 260, "title": {"text": "Top rising artists", "fontSize": 16, "fontWeight": "bold", "subtitle": "-with pop candidates highlighted-"}, "width": 320, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-baccfd440fda3734eba87be291498378": [{"artist_name": "Peso Pluma", "rising_tracks": 3, "highlight_pop": false}, {"artist_name": "Fuerza Regida", "rising_tracks": 3, "highlight_pop": false}, {"artist_name": "Benson Boone", "rising_tracks": 1, "highlight_pop": true}, {"artist_name": "Ryan Castro", "rising_tracks": 1, "highlight_pop": false}, {"artist_name": "Michael Jackson", "rising_tracks": 1, "highlight_pop": true}, {"artist_name": "Neton Vega", "rising_tracks": 1, "highlight_pop": false}, {"artist_name": "Olivia Dean", "rising_tracks": 1, "highlight_pop": true}, {"artist_name": "RAYE", "rising_tracks": 1, "highlight_pop": true}, {"artist_name": "Rauw Alejandro", "rising_tracks": 1, "highlight_pop": false}, {"artist_name": "Sabrina Carpenter", "rising_tracks": 1, "highlight_pop": false}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -6,18 +6,21 @@
   <title>Task 4</title>
   <link rel="stylesheet" href="assets/student.css">
   <style>
-    .charts-grid {
+    .charts-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
       gap: 12px;
-      justify-content: center;
-      width: 100%;
+      width: 800px;
+      height: 450px;
+      padding: 12px;
+      align-items: center;
+      justify-content: space-between;
     }
     .chart-frame {
-      flex: 1 1 380px;
-      width: 100%;
-      height: 270px;
+      width: 382px;
+      height: 410px;
       border: 0;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -27,13 +30,13 @@
     <div id="visualisation" role="region" aria-labelledby="page-title">
       <div class="charts-grid">
         <iframe
-          src="assets/task4_pop_is_best.png"
+          src="assets/task4_chart_1.html"
           title="Rising genres"
           class="chart-frame"
           loading="lazy"
         ></iframe>
         <iframe
-          src="assets/task4_top_artists.png"
+          src="assets/task4_chart_2.html"
           title="Top rising artists"
           class="chart-frame"
           loading="lazy"
